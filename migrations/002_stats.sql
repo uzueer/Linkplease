@@ -7,5 +7,5 @@ CREATE TABLE IF NOT EXISTS duplicate_blocks (
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
--- index to speed up counts
-CREATE INDEX IF NOT EXISTS idx_duplicate_blocks_created_at ON duplicate_blocks(created_at);
+CREATE INDEX IF NOT EXISTS idx_duplicate_blocks_created_at
+ON duplicate_blocks(created_at);

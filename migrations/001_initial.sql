@@ -1,11 +1,11 @@
-CREATE TABLE rules (
+CREATE TABLE IF NOT EXISTS rules (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     keyword VARCHAR(255) NOT NULL,
     dm_message TEXT NOT NULL,
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
-CREATE TABLE events (
+CREATE TABLE IF NOT EXISTS events (
     id BIGSERIAL PRIMARY KEY,
     event_id VARCHAR(255) NOT NULL UNIQUE,
     event_type VARCHAR(100) NOT NULL,
@@ -19,7 +19,7 @@ CREATE TABLE events (
     processed_at TIMESTAMPTZ
 );
 
-CREATE TABLE deliveries (
+CREATE TABLE IF NOT EXISTS deliveries (
     id BIGSERIAL PRIMARY KEY,
     rule_id UUID NOT NULL REFERENCES rules(id),
     user_id VARCHAR(255) NOT NULL,
