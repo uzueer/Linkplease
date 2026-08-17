@@ -276,6 +276,20 @@ const worker = new Worker(
           `Duplicate blocked: DM already submitted: ${delivery.dm_id}`
         );
 
+        try {
+          await pool.query(
+            `INSERT INTO duplicate_blocks (
+              delivery_id,
+              rule_id,
+              user_id,
+              event_id
+            ) VALUES ($1, $2, $3, $4)`,
+            [delivery.id, rule.id, event.user_id, event.event_id]
+          );
+        } catch (err) {
+          console.error("Failed to record duplicate block:", err.message);
+        }
+
         continue;
       }
 
