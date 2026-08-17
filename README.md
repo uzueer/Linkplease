@@ -8,7 +8,7 @@ When a user comments a configured keyword such as `PRICE`, LinkPlease matches th
 
 - **Live API:** https://linkplease-ioif.onrender.com
 - **GitHub:** https://github.com/uzueer/Linkplease
-- **Loom Demo:** https://www.loom.com/share/0545349a785a4fc58bfc2ba824044999
+
 
 ## 🏗️ Simple Architecture
 
